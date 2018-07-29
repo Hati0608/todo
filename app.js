@@ -19,7 +19,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.favicon())
 app.use(logger('dev'));
-app.use(express.json());
+//app.use(express.json());
+app.use(express.bodyParser())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.methodOverride())
 app.use(cookieParser());
@@ -47,6 +48,8 @@ app.use(function(err, req, res, next) {
 if ('development' == app.get('env')){
 	app.use(express.errorHandler())
 }
+
+app.post('/create'. routes.create)
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('express server listening on port ' + app.get('port'))
