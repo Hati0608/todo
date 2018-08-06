@@ -49,6 +49,8 @@ if ('development' == app.get('env')){
 	app.use(express.errorHandler())
 }
 
+app.get('/destroy/:id', routes.destroy)
+app.get('edit/:id',routes.edit)
 app.post('/create'. routes.create)
 
 http.createServer(app).listen(app.get('port'), function(){

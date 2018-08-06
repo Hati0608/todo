@@ -37,7 +37,18 @@ function destroy (req, res){
 	})
 }
 
+function edit (req, res){
+	Todo.find(function (err, todos){
+		res.render('edit', {
+			title   : 'Express Todo Example',
+			todos   : todos,
+			current : req.params.id
+		})
+	})
+}
+
 exports.create  = create
 exports.index   = indexa
 exports.destroy = destroy
+exports.edit = edit
 module.exports = router;
