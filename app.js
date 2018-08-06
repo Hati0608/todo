@@ -52,6 +52,7 @@ if ('development' == app.get('env')){
 app.get('/destroy/:id', routes.destroy)
 app.get('edit/:id',routes.edit)
 app.post('/create'. routes.create)
+app.post('/update/:id',routes.update)
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('express server listening on port ' + app.get('port'))
